@@ -4,31 +4,27 @@
 <header>
   <div>
     <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Cart</li>
+
     </ul>
   </div>
 </header>
 
 <h1> Wyncode Swag Store v2.0</h1>
 
+
 <div class="store">
-  <div><%= link_to image_tag("product1.png"), "http://localhost:3000/products/1/" %></div>
-  <div><%= link_to image_tag("product2.png"), "http://localhost:3000/products/2/" %></div>
-  <div><%= link_to image_tag("product3.png"), "http://localhost:3000/products/3/" %></div>
-  <div><%= link_to image_tag("product4.png"), "http://localhost:3000/products/4/" %></div>
-  <div><%= link_to image_tag("product5.png"), "http://localhost:3000/products/5/" %></div>
-  <div><%= link_to image_tag("product6.jpg"), "http://localhost:3000/products/6/" %></div>
-  <div><%= link_to image_tag("product7.jpg"), "http://localhost:3000/products/7/" %></div>
-  <div><%= link_to image_tag("product8.png"), "http://localhost:3000/products/8/" %></div>
-  <div><%= link_to image_tag("product9.jpg"), "http://localhost:3000/products/9/" %></div>
+  <% @products.each do |product| %>
+  <div class="hover">
+    <figure><%= link_to image_tag(product.photo.url), product_path(product) %></figure>
+  </div>
+  <% end %>
+
 </div>
 
 <footer>
       <ul>
         <li><a href="http://twitter.com/Wyncode">Twitter Link</a></li>
         <li><a href="http://www.facebook.com/Wyncode">Facebook Link</a></li>
-        <li>Misc Contact Link</li>
+        <li><a href="sales@wyncode.co">Inquiries</li>
       </ul>
 </footer>
