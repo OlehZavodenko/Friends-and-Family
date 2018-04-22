@@ -14,9 +14,15 @@
 </p>
 
 <p>
-<strong>Price:</strong>
+<strong>Price in USD:</strong>
 <%= @product.formatted_price %>
 </p>
+
+<p>
+<strong>Price in BTC:</strong>
+<%= @product.btc_price %>
+</p>
+
 
 <h3>Reviews</h3>
 <% @product.reviews.each do |review| %>
