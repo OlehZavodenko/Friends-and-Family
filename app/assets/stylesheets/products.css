@@ -5,3 +5,21 @@
 * {
   font-family: 'Raleway', sans-serif;
 }
+
+.display {
+  margin: 0 auto;
+  width: 600px;
+}
+
+img {
+  float: right;
+}
+
+header ul {
+  padding: 0.5em;
+  text-align: center;
+}
+
+header li {
+  display:inline-block;
+}

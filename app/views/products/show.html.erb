@@ -1,22 +1,35 @@
+<%= stylesheet_link_tag "products.css" %>
+<link href="https://fonts.googleapis.com/css?family=Gugi|Raleway" rel="stylesheet">
 <p id="notice"><%= notice %></p>
+
+<header>
+  <li><%= link_to 'Home' %></li>
+  <li><a href="http://twitter.com/Wyncode">Twitter</a></li>
+  <li><a href="http://www.facebook.com/Wyncode">Facebook</a></li>
+  <li><a href="sales@wyncode.co">Inquiries</li>
+</ul>
+</header>
+
+<div class="display">
 <p>
   <%= image_tag @product.photo.url(:medium)%>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Name:<br/></strong>
   <%= @product.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Description:<br/></strong>
   <%= @product.description %>
 </p>
 
 <p>
-<strong>Price:</strong>
-<%= @product.formatted_price %>
+<strong>Price: $</strong>
+<%= @product.formatted_price %> | BTC
 </p>
+
 
 <h3>Reviews</h3>
 <% @product.reviews.each do |review| %>
@@ -29,14 +42,6 @@
 
   <h3>New Review</h3>
 <%= render 'reviews/form' %>
-
+</div>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
-
-<footer>
-      <ul>
-        <li><a href="http://twitter.com/Wyncode">Twitter Link</a></li>
-        <li><a href="http://www.facebook.com/Wyncode">Facebook Link</a></li>
-        <li><a href="sales@wyncode.co">Inquiries</li>
-      </ul>
-</footer>
