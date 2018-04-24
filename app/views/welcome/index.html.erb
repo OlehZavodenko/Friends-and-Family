@@ -15,10 +15,12 @@
 <div class="store">
   <% @products.each do |product| %>
   <div class="hover">
-    <figure><%= link_to image_tag(product.photo.url), product_path(product), class: "image" %></figure>
+    <%=  image_tag(product.photo.url)%>
+  <%= link_to product_path(product) do  %>
     <div class="overlay">
-      <div class="text"><%= product.name %> </div>
+      <h2><strong><%= product.name %> </strong></h2>
     </div>
+    <% end %>
   </div>
   <% end %>
 
@@ -29,6 +31,6 @@
       <ul>
         <li><a href="http://twitter.com/Wyncode">Twitter</a></li>
         <li><a href="http://www.facebook.com/Wyncode">Facebook</a></li>
-        <li><a href="sales@wyncode.co">Inquiries</li>
+        <li><a href="mailto:sales@wyncode.co">Inquiries</li>
       </ul>
 </footer>

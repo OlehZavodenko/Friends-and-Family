@@ -7,8 +7,8 @@
 .hover figure:hover img {
 	-webkit-transform: scale(1.3);
 	transform: scale(1.3);
-} 
-/* $hover: rgba(0, 0, 0, 0.2);
+}
+$hover: rgba(0, 0, 0, 0.2);
 
 *,
 *:before,
@@ -68,4 +68,4 @@ img,
       filter: blur(2px);
     }
   }
-} */
+}
