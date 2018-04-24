@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :nickname %><br>
+    <%= form.text_field :nickname, required: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
+    <%= form.text_area :comment, required: true %>
   </div>
 
   <% if @product.nil? %>
