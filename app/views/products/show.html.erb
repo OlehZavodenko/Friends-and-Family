@@ -10,6 +10,7 @@
 </ul>
 </header>
 
+
 <div class="display">
 <p>
   <%= image_tag @product.photo.url(:medium)%>
@@ -22,12 +23,27 @@
 
 <p>
   <strong>Description:<br/></strong>
-  <%= @product.description %>
+<br>  <%= @product.description %> </br>
 </p>
 
 <p>
-<strong>Price: $</strong>
-<%= @product.formatted_price %> | <%= @btc_price %>BTC
+<strong>Price in Dollars: </strong>
+<br><%= @product.formatted_price %> USD</br>
+</p>
+
+<p>
+<strong>Price in Bitcoin: </strong>
+<br><%= @product.btc_price %> BTC</br>
+</p>
+
+<strong>Price in Litecoin: </strong>
+<br><%= @product.ltc_price %> LTC</br>
+</p>
+<strong>Price in Ethereum: </strong>
+<br><%= @product.eth_price %> ETH</br>
+</p>
+<strong>Price in Bitcoin Cash: </strong>
+<br><%= @product.bch_price %> BCH </br>
 </p>
 
 <div class="dropdown">
@@ -39,8 +55,8 @@
     <a href="#">XL</a>
   </div>
   <button class="dropbtn">Add to Cart</button>
+  </div>
 </div>
-
 <!-- <form action="http://google.com">
     <input type="submit" value="Add to Cart" />
 </form> -->
@@ -58,6 +74,6 @@
   <h3>Leave a review about this product:</h3>
 <%= render 'reviews/form' %>
 
-</div>
+
 <!-- <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %> -->

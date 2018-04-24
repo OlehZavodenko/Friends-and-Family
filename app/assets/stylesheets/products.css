@@ -8,7 +8,8 @@
 
 .display {
   margin: 0 auto;
-  width: 600px;
+  border: 2px solid grey;
+
 }
 
 img {
@@ -62,6 +63,10 @@ header li {
 
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+
+.prod_display {
+    border: 2px solid grey;
 }
 
 span {
