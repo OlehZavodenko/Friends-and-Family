@@ -12,13 +12,52 @@ class Product < ApplicationRecord
   end
 
   def btc_price
-     response = HTTParty.get "https://api.coindesk.com/v1/bpi/currentprice/USD.json"
+    require 'coinbase/wallet'
 
-  response_json = JSON.parse(response.body)
+    client = Coinbase::Wallet::Client.new(api_key: 'oH6DpcmodB0Oyicw', api_secret: 'anVXPXHZmAXJrKHvfK7oa89zDwzbyBVs')
 
-   price = response_json["bpi"]["USD"]["rate"].to_i * 1000
+    btcprice = client.exchange_rates({currency: 'BTC'})["rates"]["USD"].to_i
 
-     price_in_btc  = (price_in_cents.to_f / 100) / price
+     price_in_btc  = (price_in_cents.to_f / 100) / btcprice
      sprintf("%.5f", price_in_btc)
    end
+   def ltc_price
+     require 'coinbase/wallet'
+     client = Coinbase::Wallet::Client.new(api_key: 'oH6DpcmodB0Oyicw', api_secret: 'anVXPXHZmAXJrKHvfK7oa89zDwzbyBVs')
+
+     ltcprice = client.exchange_rates({currency: 'LTC'})["rates"]["USD"].to_i
+
+      price_in_ltc  = (price_in_cents.to_f / 100) / ltcprice
+      sprintf("%.5f", price_in_ltc)
+    end
+    def eth_price
+      require 'coinbase/wallet'
+      client = Coinbase::Wallet::Client.new(api_key: 'oH6DpcmodB0Oyicw', api_secret: 'anVXPXHZmAXJrKHvfK7oa89zDwzbyBVs')
+
+      ethprice = client.exchange_rates({currency: 'ETH'})["rates"]["USD"].to_i
+
+       price_in_eth  = (price_in_cents.to_f / 100) / ethprice
+       sprintf("%.5f", price_in_eth)
+     end
+     def bch_price
+       require 'coinbase/wallet'
+       client = Coinbase::Wallet::Client.new(api_key: 'oH6DpcmodB0Oyicw', api_secret: 'anVXPXHZmAXJrKHvfK7oa89zDwzbyBVs')
+
+       bchprice = client.exchange_rates({currency: 'BCH'})["rates"]["USD"].to_i
+
+        price_in_bch  = (price_in_cents.to_f / 100) / bchprice
+        sprintf("%.5f", price_in_bch)
+      end
 end
+
+# client = Coinbase::Wallet::Client.new(api_key: 'oH6DpcmodB0Oyicw', api_secret: 'anVXPXHZmAXJrKHvfK7oa89zDwzbyBVs')
+#
+# BTCprice = client.exchange_rates({currency: 'BTC'})
+#
+# LTCprice = client.exchange_rates({currency: 'LTC'})
+#
+# ETHprice = client.exchange_rates({currency: 'ETH'})
+#
+# BCHprice = client.exchange_rates({currency: 'BCH'})
+#
+# p ETHprice["rates"]["USD"].to_i
