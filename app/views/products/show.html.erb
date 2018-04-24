@@ -25,7 +25,7 @@
 <br>  <%= @product.description %> </br>
 </p>
 
-<p>
+<!-- <p>
 <strong>Price in Dollars: </strong>
 <br><%= @product.formatted_price %> USD</br>
 </p>
@@ -43,8 +43,20 @@
 </p>
 <strong>Price in Bitcoin Cash: </strong>
 <br><%= @product.bch_price %> BCH </br>
-</p>
+</p> -->
 
+<div class="dropdown">
+  <!-- <button class="dropbtn">Size</button> -->
+  <div class="dropdown-content">
+    <a href="#"><% @product.formatted_price %> US Dollar</a>
+    <a href="#"><% @product.btc_price %> Bitcoin</a>
+    <a href="#"><%@product.ltc_price%> Litecoin</a>
+    <a href="#"><% @product.eth_price %> Ethereum</a>
+    <a href="#"><% @product.bch_price %> Bitcoin Cash</a>
+  </div>
+  <button class="dropbtn">Pay In</button>
+</div>
+<br></br>
 <div class="dropdown">
   <!-- <button class="dropbtn">Size</button> -->
   <div class="dropdown-content">
@@ -53,8 +65,11 @@
     <a href="#">L</a>
     <a href="#">XL</a>
   </div>
-  <button class="dropbtn">Add to Cart</button>
+
+  <button class="dropbtn">Size</button>
 </div>
+<br></br>
+  <button class="dropbtn">Add to Cart</button>
 
 <!-- <form action="http://google.com">
     <input type="submit" value="Add to Cart" />
