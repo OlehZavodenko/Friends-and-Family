@@ -15,7 +15,10 @@
 <div class="store">
   <% @products.each do |product| %>
   <div class="hover">
-    <figure><%= link_to image_tag(product.photo.url), product_path(product) %></figure>
+    <figure><%= link_to image_tag(product.photo.url), product_path(product), class: "image" %></figure>
+    <div class="overlay">
+      <div class="text"><%= product.name %> </div>
+    </div>
   </div>
   <% end %>
 
