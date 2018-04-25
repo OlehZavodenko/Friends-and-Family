@@ -9,18 +9,18 @@
 body {
   background: rgb(108,124,125);
   background: radial-gradient(circle, rgba(108,124,125,0.4598214285714286) 0%, rgba(225,228,244,0) 100%);
-} 
+}
 
 .display {
   margin: 0 auto;
   border: 2px solid grey;
-
+  padding: 50px;
+  text-align: center;
 }
 
-img {
+/* .photo {
   float: right;
-
-}
+} */
 
 header ul {
   padding: 0.5em;
@@ -29,6 +29,14 @@ header ul {
 
 header li {
   display: inline-block;
+}
+
+hr {
+  border: 0;
+  width: 50%;
+  color: grey;
+  background-color: grey;
+  height: 5px;
 }
 
 .dropbtn {

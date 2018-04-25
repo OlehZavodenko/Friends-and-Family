@@ -12,9 +12,9 @@
 
 
 <div class="display">
-<p>
-  <%= image_tag @product.photo.url(:medium)%>
-</p>
+  <div class="photo">
+    <%= image_tag @product.photo.url(:medium)%>
+  </div>
 
 <p>
   <strong>Name:<br/></strong>
@@ -25,7 +25,19 @@
   <strong>Description:<br/></strong>
 <br>  <%= @product.description %> </br>
 </p>
+<hr>
+<h3>Reviews</h3>
+<% @product.reviews.each do |review| %>
+  <p>
+    <%= review.comment %>
+    <br>
+    <span>Added on: <%= time_ago_in_words review.created_at %> ago by <%= review.commentor %></span>
+    <hr>
+  </p>
+<% end %>
 
+  <h3>Leave a review about this product:</h3>
+<%= render 'reviews/form' %>
 <!-- <p>
 <strong>Price in Dollars: </strong>
 <br><%= @product.formatted_price %> USD</br>
@@ -120,18 +132,6 @@
     <input type="submit" value="Add to Cart" />
 </form> -->
 
-<h3>Reviews</h3>
-<% @product.reviews.each do |review| %>
-  <p>
-    <%= review.comment %>
-    <br>
-    <span>Added on: <%= time_ago_in_words review.created_at %> ago by <%= review.commentor %></span>
-    <hr>
-  </p>
-<% end %>
-
-  <h3>Leave a review about this product:</h3>
-<%= render 'reviews/form' %>
 
 
 <!-- <%= link_to 'Edit', edit_product_path(@product) %> |
