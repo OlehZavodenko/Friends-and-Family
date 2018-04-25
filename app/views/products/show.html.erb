@@ -26,7 +26,7 @@
 <br>  <%= @product.description %> </br>
 </p>
 
-<p>
+<!-- <p>
 <strong>Price in Dollars: </strong>
 <br><%= @product.formatted_price %> USD</br>
 </p>
@@ -44,19 +44,78 @@
 </p>
 <strong>Price in Bitcoin Cash: </strong>
 <br><%= @product.bch_price %> BCH </br>
-</p>
+</p> -->
 
-<div class="dropdown">
+<!-- <div class="dropdown"> -->
   <!-- <button class="dropbtn">Size</button> -->
-  <div class="dropdown-content">
-    <a href="#">S</a>
-    <a href="#">M</a>
-    <a href="#">L</a>
-    <a href="#">XL</a>
+  <!-- <div class="dropdown-content">
+    <a href="#"><% @product.formatted_price %> US Dollar</a>
+    <a href="#"><% @product.btc_price %> Bitcoin</a>
+    <a href="#"><%@product.ltc_price%> Litecoin</a>
+    <a href="#"><% @product.eth_price %> Ethereum</a>
+    <a href="#"><% @product.bch_price %> Bitcoin Cash</a>
   </div>
-  <button class="dropbtn">Add to Cart</button>
-  </div>
+  <button class="dropbtn">Pay In</button>
 </div>
+<br></br>
+<div class="dropdown"> -->
+  <!-- <button class="dropbtn">Size</button> -->
+  <!-- <div class="dropdown-content">
+    <a href="S">S</a>
+    <a href="M">M</a>
+    <a href="L">L</a>
+    <a href="XL">XL</a>
+  </div> -->
+
+  <!-- <button class="dropbtn">Size</button>
+</div>
+<br></br> -->
+
+<button class="btn" data-popup-open="popup-1" href="#">Add to Cart</button>
+<div class="popup" data-popup="popup-1" style= 'display:none'>
+<div class="popup-inner">
+  <h2>This Item was Added to your Cart</h2>
+  <h4>How would you like to pay?</h4>
+  <div class="dropdown" style="display: block;">
+    <button class="dropbtn">Size</button>
+    <div class="dropdown-content2">
+      <span href="S" data-price="Small">S</span>
+      <span href="M" data-price="Medium">M</span>
+      <span href="L" data-price="Large">L</span>
+      <span href="XL" data-price="Extra Large">XL</span>
+    </div>
+      <span id="size"></span>
+  </div>
+
+  <div class="dropdown">
+    <div class="dropdown-content">
+      <span href="#" data-price="$<%= @product.formatted_price %>"><% @product.formatted_price %> US Dollar</span>
+      <span href="#" data-price="<%= @product.btc_price %> BTC"><% @product.btc_price %> Bitcoin</span>
+      <span href="#" data-price="<%= @product.ltc_price %> LTC"><% @product.ltc_price%> Litecoin</span>
+      <span href="#" data-price="<%= @product.eth_price %> ETH"><% @product.eth_price %> Ethereum</span>
+      <span href="#" data-price="<%= @product.bch_price %> BCH"><% @product.bch_price %> Bitcoin Cash</span>
+    </div>
+    <button class="dropbtn">Pay In</button>
+    <span id="pay-in-price"></span>
+  </div>
+
+  <p><a data-popup-close="popup-1" href="#">Close</a></p>
+  <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+  <button class="btn QRpay" data-popup-open="popup-1" href="#">Pay</button>
+  <img class="QRcode" src="/assets/logo/bitcoinQR.png" alt="QR code" style="display:none">
+
+</div>
+</div>
+
+
+
+
+
+<div>
+</div>
+
+
+
 <!-- <form action="http://google.com">
     <input type="submit" value="Add to Cart" />
 </form> -->
