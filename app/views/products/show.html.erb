@@ -2,29 +2,30 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <p id="notice"><%= notice %></p>
 
-<header>
-<ul>
-  <li><%= link_to 'Home', root_path %></li>
-  <li><a href="http://twitter.com/Wyncode">Twitter</a></li>
-  <li><a href="http://www.facebook.com/Wyncode">Facebook</a></li>
-</ul>
-</header>
+<div class="hero-image">
+  <div class="hero-text">
 
-
-<div class="display">
-  <div class="photo">
-    <%= image_tag @product.photo.url(:medium)%>
   </div>
+</div>
+
+<!--container-->
+<div class="col-xs-offset-2 col-xs-8">
+
+<!-- left box -->
+<div class="col-xs-6">
 
 <p>
-  <strong>Name:<br/></strong>
+  <h3>Name:<br/></h3>
   <%= @product.name %>
 </p>
 
 <p>
-  <strong>Description:<br/></strong>
+  <h3>Description:<br/></h3>
 <br>  <%= @product.description %> </br>
 </p>
+
+<button class="btn" data-popup-open="popup-1" href="#">Add to Cart</button> <br>
+
 <hr>
 <h3>Reviews</h3>
 <% @product.reviews.each do |review| %>
@@ -83,56 +84,60 @@
 </div>
 <br></br> -->
 
-<button class="btn" data-popup-open="popup-1" href="#">Add to Cart</button>
 <div class="popup" data-popup="popup-1" style= 'display:none'>
-<div class="popup-inner">
-  <h2>This Item was Added to your Cart</h2>
-  <h4>How would you like to pay?</h4>
-  <div class="dropdown" style="display: block;">
-    <button class="dropbtn">Size</button>
-    <div class="dropdown-content2">
-      <span href="S" data-price="Small">S</span>
-      <span href="M" data-price="Medium">M</span>
-      <span href="L" data-price="Large">L</span>
-      <span href="XL" data-price="Extra Large">XL</span>
+  <div class="popup-inner">
+    <h2>This item was added to your cart</h2>
+    <h4>How would you like to pay?</h4>
+    <div class="dropdown" style="display: block;">
+      <button class="dropbtn">Size</button>
+      <div class="dropdown-content2">
+        <span href="S" data-price="Small">S</span>
+        <span href="M" data-price="Medium">M</span>
+        <span href="L" data-price="Large">L</span>
+        <span href="XL" data-price="Extra Large">XL</span>
+      </div>
+        <span id="size"></span>
     </div>
-      <span id="size"></span>
-  </div>
 
-  <div class="dropdown">
-    <div class="dropdown-content">
-      <span href="#" data-price="$<%= @product.formatted_price %>"><% @product.formatted_price %> US Dollar</span>
-      <span href="#" data-price="<%= @product.btc_price %> BTC"><% @product.btc_price %> Bitcoin</span>
-      <span href="#" data-price="<%= @product.ltc_price %> LTC"><% @product.ltc_price%> Litecoin</span>
-      <span href="#" data-price="<%= @product.eth_price %> ETH"><% @product.eth_price %> Ethereum</span>
-      <span href="#" data-price="<%= @product.bch_price %> BCH"><% @product.bch_price %> Bitcoin Cash</span>
+    <div class="dropdown">
+       <div class="dropdown-content">
+         <span href="#" data-price="$<%= @product.formatted_price %>"><%= @product.formatted_price %> US Dollar </span>
+         <span href="#" data-price="<%= @product.btc_price %> BTC"><%= @product.btc_price %> Bitcoin</span>
+         <span href="#" data-price="<%= @product.ltc_price %> LTC"><%= @product.ltc_price%> Litecoin</span>
+         <span href="#" data-price="<%= @product.eth_price %> ETH"><%= @product.eth_price %> Ethereum</span>
+         <span href="#" data-price="<%= @product.bch_price %> BCH"><%= @product.bch_price %> Bitcoin Cash</span>
+       </div>
+       <button class="dropbtn">Currency</button>
+       <span id="pay-in-price"></span>
     </div>
-    <button class="dropbtn">Pay In</button>
-    <span id="pay-in-price"></span>
+
+
+      <!-- <a data-popup-close="popup-1" href="#">Close</a><br> -->
+<br>
+    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    <button class="btn QRpay" data-popup-open="popup-1" href="#">Buy Now!</button>
+    <img class="QRcode" src="/assets/logo/qr-bitcoin-address.png" alt="QR code" style="display:none">
+
+    <p>
+      <span class="QRcode" style="display:none">Wyncode BTC Address: </span>
+      <span class="QRcode" style="display:none">1Gb2szkQDQZFnBvZAzfHsmcuRk4s2JyZZF</span>
+    </p>
   </div>
-
-  <p><a data-popup-close="popup-1" href="#">Close</a></p>
-  <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
-  <button class="btn QRpay" data-popup-open="popup-1" href="#">Pay</button>
-  <img class="QRcode" src="/assets/logo/bitcoinQR.png" alt="QR code" style="display:none">
-
-</div>
 </div>
 
+</div>
 
-
-
-
-<div>
+<div class="col-xs-6">
+  <%= image_tag @product.photo.url(:medium), :style => 'margin-left:40%; margin-top: 20%'%>
 </div>
 
 
-
-<!-- <form action="http://google.com">
-    <input type="submit" value="Add to Cart" />
-</form> -->
-
-
-
-<!-- <%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %> -->
+<div class="col-xs-12">
+  <center>
+  <ul class= "foot">
+    <li><%= link_to 'Home', root_path %></li>
+    <li><a href="http://twitter.com/Wyncode">Twitter</a></li>
+    <li><a href="http://www.facebook.com/Wyncode">Facebook</a></li>
+  </ul>
+</center>
+</div>
